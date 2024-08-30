@@ -2,7 +2,30 @@
 Repack Mint Display Manager deb-package: upgrade dependencies 
 Not Rebuild, Repack ony!!!
 
-- Initial revision, original pkg: **mdm_2.0.19+sylvia_amd64.deb**
+### Required Commands
+- dpkg-deb -e &lt;package_name&gt;  
+  dpkg -e &lt;package_name&gt; - extract control information from the package &lt;package_name&gt; (extract the "DEBIAN" catalog);
+- dpkg-deb -x &lt;package_name&gt; &lt;directory_name&gt;  
+  (dpkg -x &lt;package_name&gt; &lt;directory_name&gt;) - extract package &lt;package_name&gt; into &lt;directory_name&gt;;
+- dpkg-deb -b &lt;directory_name&gt; &lt;archive_name&gt;  
+  (dpkg -x &lt;directory_name&gt; &lt;archive_name&gt;) - create package archive &lt;archive_name&gt; from the &lt;directory_name&gt;;
+
+Typical workflow:
+
+- Extract early version of package.
+- Update the control information & other needed files (changelog etc.).
+- Repack package with updated debian revision (increase final number xx.yy.z-aa.bb.cc-i , for example).
+- Commit new revision.
+
+
+### Changes:
+
+- Before Tue, 20 Dec 2022 00:00:00 +0000: **mdm_2.0.19+vanessa-0_amd64.deb**  
+
+    Update debian revision: from sylvia to vanessa, 2.0.19+vanessa-0, w/o any repack.  
+
+
+- Initial revision, original pkg (before Sun, 31 Jul 2022 00:00:00 +0000): **mdm_2.0.19+sylvia_amd64.deb**
     + Additional suggested packages: 
         + mint-mdm-themes-gdm_1.8.1_all.deb 
         + mint-mdm-themes-html_2.0.15_all.deb 

@@ -1,0 +1,12 @@
+mdm (2.0.19+vanessa-0) vanessa; urgency=low
+
+  * Update debian revision: from sylvia to vanessa, w/o any repack
+
+ -- Andrey Solomatov <aso1917@ro.ru>  before Tue, 20 Dec 2022 00:00:00 +0000
+
+mdm (2.0.19+sylvia) sylvia; urgency=low
+
+  * Initial revision: original version 2.0.19+sylvia, no any repack really
+
+ -- Andrey Solomatov <aso1917@ro.ru>  before Sun, 31 Jul 2022 00:00:00 +0000
+
