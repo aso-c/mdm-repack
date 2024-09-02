@@ -1,0 +1,19 @@
+mdm (2.0.19+vera-1) vera; urgency=low
+
+  * update debian revision: from vanessa to vera
+  * update dependence: python -> python2
+
+ -- Andrey Solomatov <aso1917@ro.ru>  Fri, 24 Mar 2023 13:40:00 +0400
+
+mdm (2.0.19+vanessa-0) vanessa; urgency=low
+
+  * Update debian revision: from sylvia to vanessa, w/o any repack
+
+ -- Andrey Solomatov <aso1917@ro.ru>  Fri, 23 Sep 2022 10:00:00 +0400
+
+mdm (2.0.19+sylvia) sylvia; urgency=low
+
+  * Initial revision: original version 2.0.19+sylvia, no any repack really
+
+ -- Andrey Solomatov <aso1917@ro.ru>  Fri, 23 Sep 2022 09:00:00 +0400
+
