@@ -1,0 +1,58 @@
+#!/bin/sh
+
+DEFAULT_DISPLAY_MANAGER_FILE=/etc/X11/default-display-manager
+
+if [ "$1" = "abort-install" ] || [ "$1" = "abort-upgrade" ]; then
+  if [ -e "$DEFAULT_DISPLAY_MANAGER_FILE.dpkg-tmp" ]; then
+    mv "$DEFAULT_DISPLAY_MANAGER_FILE.dpkg-tmp" "$DEFAULT_DISPLAY_MANAGER_FILE"
+  fi
+fi
+
+if [ "$1" = "purge" ] ; then
+        update-rc.d mdm remove >/dev/null
+        rm -f /etc/default/mdm
+        if [ -d /etc/mdm ]; then
+                rmdir --ignore-fail-on-non-empty /etc/mdm/Init /etc/mdm/PreSession /etc/mdm/PostSession /etc/mdm/PostLogin /etc/mdm/Sessions /etc/mdm 2>/dev/null
+        fi
+        if [ -d /var/lib/mdm ]; then
+                rm -r /var/lib/mdm
+        fi
+        if [ -d /var/log/mdm ]; then
+                rm -r /var/log/mdm
+        fi
+        if getent passwd mdm >/dev/null; then
+                if [ -x /usr/sbin/deluser ]; then
+                        deluser --system mdm
+                fi
+        fi
+        if getent group mdm >/dev/null; then
+                if [ -x /usr/sbin/delgroup ]; then
+                        delgroup --system mdm
+                fi
+        fi
+fi
+# Automatically added by dh_installdebconf
+if [ "$1" = purge ] && [ -e /usr/share/debconf/confmodule ]; then
+	. /usr/share/debconf/confmodule
+	db_purge
+fi
+# End automatically added section
+# Automatically added by dh_installmenu
+if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
+# End automatically added section
+# Automatically added by dh_systemd_enable
+if [ "$1" = "remove" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper mask mdm.service >/dev/null
+	fi
+fi
+
+if [ "$1" = "purge" ]; then
+	if [ -x "/usr/bin/deb-systemd-helper" ]; then
+		deb-systemd-helper purge mdm.service >/dev/null
+		deb-systemd-helper unmask mdm.service >/dev/null
+	fi
+fi
+# End automatically added section
+
+exit 0

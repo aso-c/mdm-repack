@@ -1,0 +1,52 @@
+#!/usr/bin/python2
+
+import gi
+gi.require_version('Gdk', '3.0')
+from gi.repository import Gdk
+import sys
+import os
+import syslog
+
+IDEAL_DPI = 170
+CURSOR_SIZE = 24
+
+def get_window_scale():
+    window_scale = 1.0
+    try:
+        display = Gdk.Display.get_default()
+        screen = display.get_default_screen()
+        primary = screen.get_primary_monitor()
+
+        rect = screen.get_monitor_geometry(primary)
+        width_mm = screen.get_monitor_width_mm(primary)
+        height_mm = screen.get_monitor_height_mm(primary)
+        monitor_scale = screen.get_monitor_scale_factor(primary)
+
+        # Return 1.0 if the screen size isn't available (some TVs report their aspect ratio instead ... 16/9 or 16/10)
+        if ((width_mm == 160 and height_mm == 90) \
+            or (width_mm == 160 and height_mm == 100) \
+            or (width_mm == 16 and height_mm == 9) \
+            or (width_mm == 16 and height_mm == 10)):
+            return 1.0
+
+        # Return if the resolution isn't high enough
+        if rect.width < 2000 or rect.height < 1200:
+            return 1.0
+
+        if width_mm > 0 and height_mm > 0:
+            witdh_inch = width_mm / 25.4
+            height_inch = height_mm / 25.4
+            dpi_x = rect.width * monitor_scale / witdh_inch
+            dpi_y = rect.height * monitor_scale / height_inch
+            if dpi_x > IDEAL_DPI and dpi_y > IDEAL_DPI:
+                window_scale = round(dpi_x / IDEAL_DPI, 1)
+                syslog.syslog("Detected hidpi dpi %d, resolution %dx%d dimensions %dx%d. Applying scale: %s, res: %dx%d." % (dpi_x, rect.width, rect.height, witdh_inch, height_inch, window_scale, rect.width / window_scale, rect.height /  window_scale))
+    except Exception, detail:
+        syslog.syslog("Error while detecting hidpi mode: %s" % detail)
+
+    return window_scale
+
+if __name__ == '__main__':
+    window_scale = get_window_scale() * 10; # points/commas fail to be interpreted properly depending on the locale, so we pass an int instead.
+    print window_scale
+    sys.exit(0)

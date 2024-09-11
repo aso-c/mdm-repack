@@ -1,0 +1,15 @@
+
+		    MDM - MDM DISPLAY MANAGER
+
+The MDM Display Manager (MDM) is a display manager that
+implements all significant features required for managing
+local displays.
+
+Documentation:
+
+  yelp ghelp:mdm
+
+Contact:
+
+  #linuxmint-dev on irc.spotchat.org
+

@@ -7,6 +7,8 @@ Not Rebuild, Repack ony!!!
   dpkg -e &lt;package_name&gt; - extract control information from the package &lt;package_name&gt; (extract the "DEBIAN" catalog);
 - dpkg-deb -x &lt;package_name&gt; &lt;directory_name&gt;  
   (dpkg -x &lt;package_name&gt; &lt;directory_name&gt;) - extract package &lt;package_name&gt; into &lt;directory_name&gt;;
+- dpkg-deb -e &lt;package_name&gt; &lt;directory_name&gt;/DEBIAN  
+  (dpkg -x &lt;package_name&gt; &lt;directory_name&gt;) - extract control information from the package &lt;package_name&gt; into &lt;directory_name&gt;/DEBIAN; (need for rebuild of the package);
 - dpkg-deb -b &lt;directory_name&gt; &lt;archive_name&gt;  
   (dpkg -b &lt;directory_name&gt; &lt;archive_name&gt;) - create package archive &lt;archive_name&gt; from the &lt;directory_name&gt;;
 
