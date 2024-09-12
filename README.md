@@ -22,6 +22,11 @@ Typical workflow:
 
 ### Changes:
 
+- Mon, 10 Apr 2023 11:04:20 +0400: **mdm_2.0.19+vera-2_amd64.deb**
+
+  * update dependence: gir1.2-webkit-3.0 -> gir1.2-webkit2-4.0
+
+
 - Fri, 24 Mar 2023 13:40:00 +0400: **mdm_2.0.19+vera-1_amd64.deb**
 
   * update debian revision: from vanessa to vera

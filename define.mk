@@ -23,7 +23,7 @@ UPSTREAM = 2.0.19
 # ubuntu distributive codename
 DISTR  = vera
 # debian version suffix
-SUFFIX = 1
+SUFFIX = 2
 # architecture sign
 ARCH   = amd64
 

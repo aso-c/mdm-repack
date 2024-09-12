@@ -34,6 +34,7 @@ unpack:
 repack:
 	@echo '<---- Build the new pack $(PKGNAME) from the work directory' $(WORKDIR)
 	@echo 'dpkg-deb -b $(WORKDIR) $(PKGNAME)'
+	dpkg-deb -b $(WORKDIR) $(PKGNAME)
 
 help:
 	@echo '**** Help of this file ****'

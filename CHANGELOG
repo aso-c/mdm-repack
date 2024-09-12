@@ -1,3 +1,9 @@
+mdm (2.0.19+vera-2) vera; urgency=low
+
+  * update dependence: gir1.2-webkit-3.0 -> gir1.2-webkit2-4.0
+
+ -- Andrey Solomatov <aso1917@ro.ru>  Mon, 10 Apr 2023 11:04:20 +0400
+
 mdm (2.0.19+vera-1) vera; urgency=low
 
   * update debian revision: from vanessa to vera
