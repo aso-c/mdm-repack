@@ -11,6 +11,7 @@ Not Rebuild, Repack ony!!!
   (dpkg -x &lt;package_name&gt; &lt;directory_name&gt;) - extract control information from the package &lt;package_name&gt; into &lt;directory_name&gt;/DEBIAN; (need for rebuild of the package);
 - dpkg-deb -b &lt;directory_name&gt; &lt;archive_name&gt;  
   (dpkg -b &lt;directory_name&gt; &lt;archive_name&gt;) - create package archive &lt;archive_name&gt; from the &lt;directory_name&gt;;
+- md5sum [-b] &lt;file_name&gt; - calculate md5sum for desired file; md5sum record for modified file must be corrected in DEBIAN/md5sums file.
 
 Typical workflow:
 
@@ -22,15 +23,20 @@ Typical workflow:
 
 ### Changes:
 
+- Tue, 17 Sep 2024 11:37:24 +0400: **mdm_2.0.19+virginia-3_amd64.deb**
+
+    * update debian revision: from vera to virginia
+    * update dependences: libwebkitgtk-1.0-0 -> libwebkit2gtk-4.1-0
+
 - Mon, 10 Apr 2023 11:04:20 +0400: **mdm_2.0.19+vera-2_amd64.deb**
 
-  * update dependence: gir1.2-webkit-3.0 -> gir1.2-webkit2-4.0
+    * update dependence: gir1.2-webkit-3.0 -> gir1.2-webkit2-4.0
 
 
-- Fri, 24 Mar 2023 13:40:00 +0400: **mdm_2.0.19+vera-1_amd64.deb**
+- Fri, 24 Mar 2023 13:40:00 +0400: **mdm_2.0.19+vera-1_amd64.deb**  
 
-  * update debian revision: from vanessa to vera
-  * update dependence: python -> python2
+    * update debian revision: from vanessa to vera
+    * update dependence: python -> python2
 
 
 - Fri, 23 Sep 2022 10:00:00 +0400: **mdm_2.0.19+vanessa-0_amd64.deb**  

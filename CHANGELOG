@@ -1,3 +1,10 @@
+mdm (2.0.19+virginia-3) virginia; urgency=low
+
+  * update debian revision: from vera to virginia
+  * update dependences: libwebkitgtk-1.0-0 -> libwebkit2gtk-4.1-0
+
+ -- Andrey Solomatov <aso1917@ro.ru>  Tue, 17 Sep 2024 11:37:24 +0400
+
 mdm (2.0.19+vera-2) vera; urgency=low
 
   * update dependence: gir1.2-webkit-3.0 -> gir1.2-webkit2-4.0

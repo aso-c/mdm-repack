@@ -21,9 +21,9 @@ PACKNAME = mdm
 # upstream version
 UPSTREAM = 2.0.19
 # ubuntu distributive codename
-DISTR  = vera
+DISTR  = virginia
 # debian version suffix
-SUFFIX = 2
+SUFFIX = 3
 # architecture sign
 ARCH   = amd64
 
